@@ -11,7 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Create .env
-        run: echo 'PORT=${{ secrets.PORT }}' > .env
+        run: |
+          echo 'PORT=${{ secrets.PORT }}' > .env
+          dos2unix .env
 
       - name: Run build
         run: docker-compose up -d
