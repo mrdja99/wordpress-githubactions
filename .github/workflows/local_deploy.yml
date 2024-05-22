@@ -12,6 +12,9 @@ jobs:
       - uses: actions/checkout@main
       - name: Create .env
         run: echo `PORT=${{ secrets.PORT }}` > .env
+
+      - name: Check Docker Compose version
+        run: docker compose version
           
       - name: Run build
         run: docker compose up -d
